@@ -10,9 +10,24 @@ class Product {
 class ShoppingCart {
   items = []
 
+  set cartItems(value) {
+    this.items = value
+    this.totalOutput.innerHTML = `<h2>Total: \$${this.totalAmmount.toFixed(
+      2
+    )}</h2>`
+  }
+
+  get totalAmmount() {
+    const sum = this.items.reduce((prevVal, currItem) => {
+      return prevVal + currItem.price
+    }, 0)
+    return sum
+  }
+
   addProduct(product) {
-    this.items.push(product)
-    this.totalOutput.innerHTML = `<h2>Total: \$${1}</h2>`
+    const updatedItems = [...this.items]
+    updatedItems.push(product)
+    this.cartItems = updatedItems
   }
 
   render() {
@@ -62,13 +77,13 @@ class ProductList {
       "A pillow",
       "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=737&q=80",
       "A soft pillow.",
-      19.99
+      10
     ),
     new Product(
       "Carpet",
       "https://images.unsplash.com/photo-1588421874990-1fe162747f9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "A carpet which you might like - or not.",
-      89.99
+      50
     ),
   ]
 
