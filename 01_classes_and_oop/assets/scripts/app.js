@@ -58,7 +58,11 @@ class ShoppingCart extends Component {
   }
 
   constructor(renderHookId) {
-    super(renderHookId)
+    super(renderHookId, false)
+    this.orderProducts = () => {
+      console.log("Ordering products", this.items)
+    }
+    this.render()
   }
 
   addProduct(product) {
@@ -73,6 +77,8 @@ class ShoppingCart extends Component {
         <h2>Total: \$${0}</h2>
         <button>Order Now!</button>
       `
+    const orderButton = cartEl.querySelector("button")
+    orderButton.addEventListener("click", this.orderProducts)
     this.totalOutput = cartEl.querySelector("h2")
   }
 }
@@ -107,15 +113,16 @@ class ProductItem extends Component {
 }
 
 class ProductList extends Component {
-  products = []
+  #products = []
 
   constructor(renderHookId) {
-    super(renderHookId)
+    super(renderHookId, false)
+    this.render()
     this.fetchProducts()
   }
 
   fetchProducts() {
-    this.products = [
+    this.#products = [
       new Product(
         "A Pillow",
         "https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg",
@@ -133,7 +140,7 @@ class ProductList extends Component {
   }
 
   renderProducts() {
-    for (const prod of this.products) {
+    for (const prod of this.#products) {
       new ProductItem(prod, "prod-list")
     }
   }
@@ -142,7 +149,7 @@ class ProductList extends Component {
     this.createRootElement("ul", "product-list", [
       new ElementAttribute("id", "prod-list"),
     ])
-    if (this.products && this.products.length > 0) {
+    if (this.#products && this.#products.length > 0) {
       this.renderProducts()
     }
   }
