@@ -6,5 +6,12 @@ function Person() {
   }
 }
 
+Person.prototype = {
+  pringAge() {
+    console.log(this.age)
+  },
+}
+
 const person = new Person()
 person.greet()
+person.pringAge()
