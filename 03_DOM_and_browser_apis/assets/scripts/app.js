@@ -184,7 +184,7 @@ class App {
 
 App.init()
 
-// LOCATION, HISTORY & NAVIGATOR
+// LOCATION, HISTORY, NAVIGATOR & DATES
 
 // location
 console.log("location", location)
@@ -204,3 +204,10 @@ navigator.clipboard
 navigator.geolocation.getCurrentPosition(data => {
   console.log(data)
 })
+
+// date
+const date = new Date()
+const year = date.getFullYear()
+const month = date.getMonth() + 1
+const day = date.getDate()
+console.log(day, month, year)
