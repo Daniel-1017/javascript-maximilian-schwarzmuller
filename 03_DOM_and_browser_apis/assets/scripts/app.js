@@ -184,7 +184,7 @@ class App {
 
 App.init()
 
-// LOCATION & HISTORY
+// LOCATION, HISTORY & NAVIGATOR
 
 // location
 console.log("location", location)
@@ -197,3 +197,10 @@ history.back()
 history.forward()
 history.length
 history.go(5)
+
+// navigator
+console.log(navigator.userAgent)
+navigator.clipboard
+navigator.geolocation.getCurrentPosition(data => {
+  console.log(data)
+})
