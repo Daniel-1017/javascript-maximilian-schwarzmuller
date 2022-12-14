@@ -184,7 +184,7 @@ class App {
 
 App.init()
 
-// LOCATION, HISTORY, NAVIGATOR & DATES
+// LOCATION, HISTORY, NAVIGATOR, DATES & ERRORS
 
 // location
 console.log("location", location)
@@ -211,3 +211,7 @@ const year = date.getFullYear()
 const month = date.getMonth() + 1
 const day = date.getDate()
 console.log(day, month, year)
+
+// errors
+const error = new Error("Something went wrong!!")
+error.message = "New Error"
