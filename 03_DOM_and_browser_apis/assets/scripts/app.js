@@ -166,7 +166,7 @@ class App {
     //   .getElementById("start-analytics-btn")
     //   .addEventListener("click", this.startAnalytics)
 
-    const timerId = setTimeout(this.startAnalytics, 3000)
+    // const timerId = setTimeout(this.startAnalytics, 3000)
     document
       .getElementById("stop-analytics-btn")
       .addEventListener("click", () => {
@@ -183,3 +183,17 @@ class App {
 }
 
 App.init()
+
+// LOCATION & HISTORY
+
+// location
+console.log("location", location)
+console.log("host", location.host)
+console.log("pathname", location.pathname)
+location.http = "http://localhost:3000"
+
+// history
+history.back()
+history.forward()
+history.length
+history.go(5)
