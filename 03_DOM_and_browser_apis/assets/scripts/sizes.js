@@ -1,0 +1,16 @@
+const box = document.getElementById("main-box")
+
+console.log(box.getBoundingClientRect())
+console.log("offsetTop", box.offsetTop)
+console.log("offsetLeft", box.offsetLeft)
+console.log("clientTop", box.clientTop)
+console.log("clientLeft", box.clientLeft)
+console.log("offsetWidth", box.offsetWidth)
+console.log("offsetHeight", box.offsetHeight)
+console.log("clientWidth", box.clientWidth)
+console.log("clientHeight", box.clientHeight)
+console.log("scrollHeight", box.scrollHeight)
+console.log("scrollTop", box.scrollTop)
+
+console.log("clientWidth", document.documentElement.clientWidth)
+console.log("clientHeight", document.documentElement.clientHeight)
