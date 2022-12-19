@@ -23,3 +23,17 @@ button.addEventListener("click", (event) => {
   event.stopPropagation();
   console.log("BUTTON CLICKED");
 });
+
+const ul = document.querySelector("ul");
+// const lis = document.querySelectorAll("li");
+
+// lis.forEach((li) => {
+//   li.addEventListener("click", (e) => {
+//     e.target.classList.toggle("active");
+//   });
+// });
+
+// USING EVENT DELEGATION
+ul.addEventListener("click", (e) => {
+  e.target.closest("li").classList.toggle("active");
+});

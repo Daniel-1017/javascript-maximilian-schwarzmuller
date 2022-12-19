@@ -35,3 +35,20 @@ button:active {
   border-color: #e92f6d;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
 }
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+li {
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+li.active {
+  background-color: orangered;
+}
