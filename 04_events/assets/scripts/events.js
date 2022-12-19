@@ -36,4 +36,5 @@ const ul = document.querySelector("ul");
 // USING EVENT DELEGATION
 ul.addEventListener("click", (e) => {
   e.target.closest("li").classList.toggle("active");
+  button.click();
 });
