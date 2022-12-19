@@ -1,9 +1,8 @@
-const button = document.querySelector("button");
+const buttons = document.querySelectorAll("button");
 
-const buttonClickHandler = () => console.log("Hello World!");
+const buttonClickHandler = (event) => {
+  event.target.disabled = true;
+  console.log("Hello World!", event);
+};
 
-const boundFn = buttonClickHandler.bind(this);
-
-button.addEventListener("click", boundFn);
-
-setTimeout(() => button.removeEventListener("click", boundFn), 2000);
+buttons.forEach((btn) => btn.addEventListener("click", buttonClickHandler));
