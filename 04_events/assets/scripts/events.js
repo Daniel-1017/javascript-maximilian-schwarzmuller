@@ -19,9 +19,10 @@ div.addEventListener("click", (event) => {
   console.log("DIV CLICKED");
 });
 
-button.addEventListener("click", (event) => {
+button.addEventListener("click", function (event) {
   event.stopPropagation();
   console.log("BUTTON CLICKED");
+  console.log(this); // this points at the element we add the listener to
 });
 
 const ul = document.querySelector("ul");
