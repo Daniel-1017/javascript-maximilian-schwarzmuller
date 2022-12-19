@@ -106,7 +106,7 @@ class ProjectItem {
 
   connectDrag() {
     document.getElementById(this.id).addEventListener("dragstart", (event) => {
-      event.dataTransfer.setData("text/plane", this.id);
+      event.dataTransfer.setData("text/plain", this.id);
       event.dataTransfer.effectAllowed = "move";
     });
   }
@@ -147,7 +147,30 @@ class ProjectList {
         new ProjectItem(prjItem.id, this.switchProject.bind(this), this.type)
       );
     }
-    console.log(this.projects);
+    this.connectDroppable();
+  }
+
+  connectDroppable() {
+    const list = document.querySelector(`#${this.type}-projects ul`);
+
+    list.addEventListener("dragenter", (e) => {
+      if (e.dataTransfer.types[0] === "text/plain") {
+        e.preventDefault();
+        list.parentElement.classList.add("droppable");
+      }
+    });
+
+    list.addEventListener("dragover", (e) => {
+      if (e.dataTransfer.types[0] === "text/plain") {
+        e.preventDefault();
+      }
+    });
+
+    list.addEventListener("dragleave", (e) => {
+      if (e.relatedTarget.closest(`#${this.type}-projects ul`) !== list) {
+        list.parentElement.classList.remove("droppable");
+      }
+    });
   }
 
   setSwitchHandlerFunction(switchHandlerFunction) {
